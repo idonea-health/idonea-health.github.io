@@ -1,4 +1,7 @@
 # Publishes this repo to https://idonea-health.github.io/ (Pages source: GitHub Actions).
+#   /            index.html: what Idonea is, how it works, where things stand
+#   /demo/       the coordinator demo, built in idonea-mvp (ui/app) on made-up patients
+#   /jwks.json   Idonea's public signing key for ModMed Bulk FHIR (do not change by hand)
 name: Publish site
 on:
   push:
@@ -19,8 +22,13 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Refuse to publish sponsor or protocol names
+        run: |
+          for w in Madrigal TEMPO MGL-MA NILDA "Medical Affairs" SYNERGY Synergy Lilly etatrutide LY3437943; do
+            if grep -rlF "$w" --include='*.html' --include='*.json' --include='*.txt' . ; then echo "BLOCKED: found \"$w\""; exit 1; fi
+          done
       - name: Collect the site files
-        run: mkdir _site && cp index.html robots.txt jwks.json privacy.html terms.html logo.png _site/
+        run: mkdir _site && cp -r index.html robots.txt jwks.json privacy.html terms.html logo.png demo fonts img _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
