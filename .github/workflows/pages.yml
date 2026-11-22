@@ -30,9 +30,8 @@ jobs:
           done
       - name: Refuse to publish the old name (the brand is Kylo)
         run: |
-          # The demo's internal browser storage key "idonea-trial1" is never shown and is the only allowed trace.
-          for f in $(find . -path ./.git -prune -o \( -name '*.html' -o -name '*.txt' \) -print); do
-            if sed 's/"idonea-trial1"//g' "$f" | grep -qi "idonea"; then echo "BLOCKED: found the old name in $f"; exit 1; fi
+          for f in $(find . -path ./.git -prune -o \( -name '*.html' -o -name '*.txt' -o -name '*.json' \) -print); do
+            if grep -qi "idonea" "$f"; then echo "BLOCKED: found the old name in $f"; exit 1; fi
           done
       - name: Collect the site files
         run: mkdir _site && cp -r index.html robots.txt jwks.json privacy.html terms.html logo.png demo fonts img _site/
