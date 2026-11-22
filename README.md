@@ -5,7 +5,7 @@ Kylo's public website, live at **https://kylohealth.ai** (the company is Kylo He
 | Path | What it is |
 | - | - |
 | `index.html` | The home page: what Kylo is, how it works, the rules it holds to, where things stand. Edited here. |
-| `demo/index.html` | The coordinator demo on 50 made-up patients. Built in the private repo idonea-health/idonea-mvp (`cd ui/app && node build.mjs` writes `site/index.html`) and copied here. |
+| `demo/index.html` | The coordinator demo on 50 made-up patients. Built in the private repo idonea-health/kylo-mvp (`cd ui/app && node build.mjs` writes `site/index.html`) and copied here. |
 | `jwks.json` | Kylo's public signing key, registered with ModMed for Bulk FHIR. Never edit by hand. |
 | `privacy.html`, `terms.html`, `logo.png` | Linked from the ModMed app listing. |
 | `fonts/`, `img/` | Self-hosted fonts (SIL Open Font License) and the demo screenshot. |
@@ -23,5 +23,5 @@ address ModMed checks Kylo's sign-in against. Order for retiring the old address
 
 1. In ModMed's vendor dashboard, change the app's key set URL to `https://kylohealth.ai/jwks.json`.
 2. Run `python3 -m idonea.connectors.diagnose gci` and check sign-in still works; then change `PUBLISHED_JWKS` in
-   idonea-mvp to the new address.
+   kylo-mvp to the new address.
 3. Only then rename the GitHub org, and change `ORIGIN` in the Worker to the new github.io address.

@@ -1,7 +1,7 @@
 # Publishes this repo to https://idonea-health.github.io/ (Pages source: GitHub Actions), which https://kylohealth.ai
 # serves through a Cloudflare Worker (cloudflare/worker.js). The product is Kylo (Kylo Health).
 #   /            index.html: what Kylo is, how it works, where things stand
-#   /demo/       the coordinator demo, built in idonea-mvp (ui/app) on made-up patients
+#   /demo/       the coordinator demo, built in kylo-mvp (ui/app) on made-up patients
 #   /jwks.json   Kylo's public signing key for ModMed Bulk FHIR (do not change by hand)
 name: Publish site
 on:
