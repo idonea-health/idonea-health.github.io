@@ -35,7 +35,7 @@ jobs:
             if grep -qi "idonea" "$f"; then echo "BLOCKED: found the old name in $f"; exit 1; fi
           done
       - name: Collect the site files
-        run: mkdir _site && cp -r index.html signin.html robots.txt jwks.json privacy.html terms.html logo.png demo fonts _site/
+        run: mkdir _site && cp -r index.html signin.html kylo.css favicon.svg favicon-32.png apple-touch-icon.png robots.txt jwks.json privacy.html terms.html logo.png demo fonts _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

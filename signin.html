@@ -2,59 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="/logo.png">
-<style>
-@font-face{font-family:"Bricolage Grotesque";font-weight:800;font-display:swap;src:url(/fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2")}
-@font-face{font-family:"Bricolage Grotesque";font-weight:600;font-display:swap;src:url(/fonts/bricolage-grotesque-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:400;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:700;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2) format("woff2")}
-:root{--deep:#053a48;--petrol:#126479;--paper:#f7fafa;--text:#16323a;--muted:#4f6970;--line:#cfe6ec;
-  --display:"Bricolage Grotesque","Arial Narrow",sans-serif;--body:"Atkinson Hyperlegible Next",-apple-system,"Segoe UI",sans-serif}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.65 var(--body)}
-a{color:var(--petrol)}
-a:focus-visible,button:focus-visible{outline:3px solid #8f5d00;outline-offset:3px;border-radius:4px}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px}
-header{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
-.mark{font:800 26px/1 var(--display);letter-spacing:-.03em;color:var(--deep);text-decoration:none;display:flex;align-items:center;gap:10px}
-.mark i{width:20px;height:20px;border-radius:6px;background:var(--deep);display:grid;place-items:center}
-.mark i::after{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
-.btn{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;border:1.5px solid var(--deep);color:var(--deep);background:transparent}
-.btn:hover{background:var(--deep);color:#fff}
-.btn.solid{background:var(--deep);color:#fff}
-footer{border-top:1px solid var(--line);margin-top:72px;padding:24px 0 48px;font-size:15px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-footer nav{display:flex;gap:20px;flex-wrap:wrap}
-footer a{color:var(--muted)}
-main{padding:48px 0 0}
-h1{font:800 clamp(34px,5vw,46px)/1.05 var(--display);letter-spacing:-.03em;color:var(--deep);margin:0 0 10px}
-.sub{color:var(--muted);margin:0 0 32px}
-.roles{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
-.roles a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;border:1.5px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:var(--text)}
-.roles a:hover{border-color:var(--deep)}
-.roles b{display:block;font:600 21px/1.2 var(--display);color:var(--deep)}
-.roles span span{display:block;color:var(--muted);font-size:16px;margin-top:4px}
-.roles em{font-style:normal;color:var(--petrol);font-weight:700;white-space:nowrap}
-.note{color:var(--muted);font-size:15px;margin-top:28px}
-</style>
+<meta name="theme-color" content="#ECE8E1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/kylo.css">
 <title>Sign in · Kylo</title>
+<style>
+.roles{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
+.roles a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;border:1.5px solid var(--rule);border-radius:var(--radius-lg);background:var(--surface-raised);text-decoration:none}
+.roles a:hover{border-color:var(--ink)}
+.roles b{display:block;font:700 22px/1.2 var(--font-display)}
+.roles .d{display:block;color:var(--ink-muted);font-size:16px;line-height:1.5;margin-top:4px}
+.roles em{font-style:normal;font-weight:700;white-space:nowrap}
+</style>
 </head>
 <body>
 <div class="wrap">
-<header><a class="mark" href="/"><i aria-hidden="true"></i>kylo</a></header>
-<main>
-<h1>Sign in</h1>
-<p class="sub">Choose how you work with trials.</p>
+<header class="top"><a class="logo" href="/" aria-label="Kylo Health home"><svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true" style="overflow:visible"><path d="M39 91 H9 V9 H91 V91 H61" fill="none" stroke="#2A2826" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M43 71 H29 V29 H71 V71 H57" fill="none" stroke="#2A2826" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><rect x="41" y="41" width="18" height="18" rx="3" fill="#B5733A"/></svg><span class="wm">kylo</span></a></header>
+<main class="doc">
+<h1 class="h1">Sign in</h1>
+<p class="muted" style="margin-bottom:32px">Choose how you work with trials.</p>
 <ul class="roles">
-<li><a href="https://app.kylohealth.ai/?role=physician"><span><b>Physicians and investigators</b><span>Review candidates and approve the ones worth a screening visit.</span></span><em>Continue</em></a></li>
-<li><a href="https://app.kylohealth.ai/?role=coordinator"><span><b>Research coordinators</b><span>Work the list: confirm values, resolve what is missing, reach out.</span></span><em>Continue</em></a></li>
-<li><a href="https://app.kylohealth.ai/?role=cro"><span><b>CROs and sponsors</b><span>See how candidates are found and checked at a site.</span></span><em>Continue</em></a></li>
+<li><a href="https://app.kylohealth.ai/?role=physician"><span><b>Physicians and investigators</b><span class="d">Review candidates and approve the ones worth a screening visit.</span></span><em>Continue</em></a></li>
+<li><a href="https://app.kylohealth.ai/?role=coordinator"><span><b>Research coordinators</b><span class="d">Work the list: confirm values, resolve what is missing, reach out.</span></span><em>Continue</em></a></li>
+<li><a href="https://app.kylohealth.ai/?role=cro"><span><b>CROs and sponsors</b><span class="d">See how candidates are found and checked at a site.</span></span><em>Continue</em></a></li>
 </ul>
-<p class="note">Access is by invitation. You'll get a one-time code by email. Need access? <a href="mailto:nilesh@kylohealth.ai">Email us</a>.</p>
+<p class="muted" style="font-size:15px;margin-top:28px">Access is by invitation. You'll get a one-time code by email. Need access? <a href="mailto:nilesh@kylohealth.ai">Email us</a>.</p>
 </main>
-<footer><span>Kylo Health</span><nav><a href="mailto:nilesh@kylohealth.ai">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></footer>
+<div class="foot-wrap"><footer class="foot"><span>Kylo Health</span><nav><a href="mailto:nilesh@kylohealth.ai">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></footer></div>
 </div>
 </body>
 </html>
