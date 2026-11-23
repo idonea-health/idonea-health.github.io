@@ -1,7 +1,8 @@
 # Publishes this repo to https://idonea-health.github.io/ (Pages source: GitHub Actions), which https://kylohealth.ai
 # serves through a Cloudflare Worker (cloudflare/worker.js). The product is Kylo (Kylo Health).
-#   /            index.html: what Kylo is, how it works, where things stand
-#   /demo/       the coordinator demo, built in kylo-mvp (ui/app) on made-up patients
+#   /            index.html: a short public letter (vision only)
+#   /signin.html role choice; each goes to https://app.kylohealth.ai (Cloudflare Worker kylo-app behind Access)
+#   /demo/       only a redirect to /signin.html; the demo itself is no longer published here
 #   /jwks.json   Kylo's public signing key for ModMed Bulk FHIR (do not change by hand)
 name: Publish site
 on:
@@ -34,7 +35,7 @@ jobs:
             if grep -qi "idonea" "$f"; then echo "BLOCKED: found the old name in $f"; exit 1; fi
           done
       - name: Collect the site files
-        run: mkdir _site && cp -r index.html robots.txt jwks.json privacy.html terms.html logo.png demo fonts img _site/
+        run: mkdir _site && cp -r index.html signin.html robots.txt jwks.json privacy.html terms.html logo.png demo fonts _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
