@@ -15,12 +15,17 @@
 <style>
 /* Layout: a dark cover column (logo, mark, headline, lead) beside the letter, like a book's cover and first page. */
 .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:100vh}
-.cover{background:var(--surface-inverse);color:var(--ink-inverse);position:sticky;top:0;align-self:start;min-height:100vh;
-  display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:36px 56px 56px}
-.cover-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.cover .h1{font-size:clamp(40px,3.9vw,58px);line-height:1.04;margin-top:40px}
-.lead{font-size:21px;line-height:1.5;margin:22px 0 0;color:var(--ink-inverse-muted);max-width:26em}
-.page{padding:120px 72px 0;max-width:760px}
+.cover{background:var(--surface-inverse);color:var(--ink-inverse);position:sticky;top:0;align-self:start;height:100vh;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:36px 56px clamp(28px,6vh,56px)}
+.cover .btn{display:none}
+.hero-mark{width:clamp(64px,13vh,120px);height:clamp(64px,13vh,120px)}
+.cover-top{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px}
+.cover .h1{font-size:clamp(30px,min(3.9vw,6.6vh),58px);line-height:1.04;margin-top:clamp(20px,4.5vh,40px)}
+.lead{font-size:clamp(17px,2.4vh,21px);line-height:1.5;margin:clamp(12px,2.4vh,22px) 0 0;color:var(--ink-inverse-muted);max-width:26em}
+.page{padding:36px 56px 0 72px;display:flex;flex-direction:column;min-height:100vh}
+.page-top{display:flex;justify-content:flex-end}
+.letter{max-width:616px;margin-top:clamp(40px,9vh,84px);flex:1}
+.page .foot-wrap{margin-top:48px}
 .letter p{margin:0 0 18px}
 .sign{margin-top:30px}
 
@@ -34,11 +39,15 @@
 
 @media (max-width:900px){
   .split{grid-template-columns:1fr}
-  .cover{position:relative;min-height:0;padding:20px 24px 40px;gap:32px;
+  .cover{position:relative;height:auto;overflow:visible;padding:20px 24px 40px;gap:32px;
     padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
   .cover .h1{font-size:38px;margin-top:28px}
   .lead{font-size:19px}
   .hero-mark{width:88px;height:88px}
+  .cover .btn{display:inline-flex}
+  .page-top{display:none}
+  .page{min-height:0}
+  .letter{margin-top:0}
   .page{padding:36px 24px 0;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 }
 </style>
@@ -66,14 +75,13 @@
   </div>
 </aside>
 <main class="page">
+  <div class="page-top"><a class="btn" href="/signin.html">Sign in</a></div>
   <div class="letter">
-    <p>Capital is pouring into AI drug discovery. Suppose it works. Every one of those drugs still has to be tested in people, because no model can tell us whether a drug is safe and effective in a human being. The trial system is not growing to meet them. If AI delivers even part of what is being funded, more drugs will compete for the same patients and the same sites.</p>
-    <p>In our first disease, that has already happened. MASH is a progressive fatty liver disease with new drugs arriving quickly. The typical MASH trial site now enrolls a fraction of the patients it did a decade ago, and more than half of the patients who are screened do not qualify.</p>
-    <p>We start where patients are found: inside the practice. Kylo works alongside each practice's research team, reads its own records, and gives them a ranked list of patients for a specific trial, with the evidence behind every criterion. A matching tool stops at a list. We stay with every patient until enrollment, from the conversation with their own doctor to the coordinator's call to the screening visit, so every trial makes the next one better.</p>
-    <p>We are starting in metabolic disease, with community gastroenterology practices. These practices are where most patients are treated and where few trials are run. Reaching them finds the patients trials are missing, and it widens who gets access to new drugs.</p>
-    <p>Every practice we connect stays connected. Each new trial there runs on records we already understand. With enough practices connected, we would know who qualifies for which trial, and where, before it opens, so site selection, feasibility and enrollment forecasts can run on real patients instead of estimates.</p>
+    <p>Capital is pouring into AI drug discovery. Every one of those drugs still has to be tested in people, and the trial system is not growing to meet them. If AI delivers even part of what is being funded, more drugs will compete for the same patients and the same sites.</p>
+    <p>We start where patients are found: inside the practice. Kylo reads a practice's own records and gives its research team a ranked list of patients for a specific trial, with the evidence behind every criterion. A matching tool stops at a list. We stay with every patient until enrollment.</p>
+    <p>We are starting in metabolic disease, with community gastroenterology practices, where most patients are treated and few trials are run. Every practice we connect stays connected, so its next trial starts on records we already understand.</p>
     <p>Fixed rules decide eligibility, a person confirms every decision, and patient data stays with the practice.</p>
-    <p>The end state is a trial system where finding patients is no longer the slow step, and new drugs reach people sooner. If you run trials, sponsor them, or want to help build this, we would like to hear from you.</p>
+    <p>If you run trials, sponsor them, or want to help build this, we would like to hear from you.</p>
     <p class="sign">Nilesh and the team at Kylo Health<br><a href="mailto:nilesh@kylohealth.ai">nilesh@kylohealth.ai</a></p>
   </div>
   <div class="foot-wrap"><footer class="foot"><span>Kylo Health</span><nav><a href="mailto:nilesh@kylohealth.ai">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></footer></div>
